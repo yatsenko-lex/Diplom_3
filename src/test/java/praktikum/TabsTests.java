@@ -29,7 +29,6 @@ public class TabsTests {
     @Test
     @DisplayName("Переход к разделу 'Булки'")
     public void scrollToBunsTest() throws InterruptedException {
-        mainScreen.fillingsScroll();
         mainScreen.bunsScroll();
         assertTrue(mainScreen.bunsIsVisible());
     }
@@ -37,15 +36,15 @@ public class TabsTests {
     @Test
     @DisplayName("Переход к разделу 'Соусы'")
     public void scrollToSauceTest() throws InterruptedException {
-        mainScreen.fillingsScroll();
-        assertTrue(mainScreen.fillingsIsVisible());
+        mainScreen.sauceScroll();
+        assertTrue(mainScreen.saucesIsVisible());
     }
 
     @Test
     @DisplayName("Переход к разделу 'Начинки'")
     public void scrollToFillingsTest() throws InterruptedException {
-        mainScreen.sauceScroll();
-        assertTrue(mainScreen.saucesIsVisible());
+        mainScreen.fillingsScroll();
+        assertTrue(mainScreen.fillingsIsVisible());
     }
 
     @After
