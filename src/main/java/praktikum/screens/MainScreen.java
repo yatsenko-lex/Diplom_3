@@ -11,10 +11,16 @@ public class MainScreen {
     public By enterAccountButton = By.xpath("//button[contains(text(), 'Войти в аккаунт')]");
     public By accountButton = By.xpath("//a[@href='/account']");
     public By bunsButton = By.xpath("//span[contains(text(), 'Булки')]");
+    public By activeBunsButton = By.xpath("//div[@class='tab_tab__1SPyG " +
+            "tab_tab_type_current__2BEPc pt-4 pr-10 pb-4 pl-10 noselect']/span[text()='Булки']");
     public By bunsText = By.xpath("//h2[contains(text(), 'Булки')]");
     public By saucesButton = By.xpath("//span[contains(text(), 'Соусы')]");
+    public By activeSaucesButton = By.xpath("//div[@class='tab_tab__1SPyG " +
+            "tab_tab_type_current__2BEPc pt-4 pr-10 pb-4 pl-10 noselect']/span[text()='Соусы']");
     public By saucesText = By.xpath("//h2[contains(text(), 'Соусы')]");
     public By fillingsButton = By.xpath("//span[contains(text(), 'Начинки')]");
+    public By activeFillingsButton = By.xpath("//div[@class='tab_tab__1SPyG " +
+            "tab_tab_type_current__2BEPc pt-4 pr-10 pb-4 pl-10 noselect']/span[text()='Начинки']");
     public By fillingsText = By.xpath("//h2[contains(text(), 'Начинки')]");
 
     private WebDriver webDriver;
@@ -48,6 +54,11 @@ public class MainScreen {
         Thread.sleep(1000);
     }
 
+    @Step("Проверка активности кнопки 'Булки'")
+    public boolean isBunsButtonActive() {
+        return webDriver.findElement(activeBunsButton).isDisplayed();
+    }
+
     @Step("Проверка отображения текста 'Булки'")
     public boolean bunsIsVisible() {
         return webDriver.findElement(bunsText).isDisplayed();
@@ -60,6 +71,11 @@ public class MainScreen {
         Thread.sleep(1000);
     }
 
+    @Step("Проверка активности кнопки 'Соусы'")
+    public boolean isSaucesButtonActive() {
+        return webDriver.findElement(activeSaucesButton).isDisplayed();
+    }
+
     @Step("Проверка отображения текста 'Соусы'")
     public boolean saucesIsVisible() {
         return webDriver.findElement(saucesText).isDisplayed();
@@ -70,6 +86,11 @@ public class MainScreen {
         webDriver.findElement(fillingsButton).click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(fillingsText));
         Thread.sleep(1000);
+    }
+
+    @Step("Проверка активности кнопки 'Начинки'")
+    public boolean isFillingsButtonActive() {
+        return webDriver.findElement(activeFillingsButton).isDisplayed();
     }
 
     @Step("Проверка отображения текста 'Начинки'")
